@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sample.View.VirtualGridDemoPage"
+             xmlns:kit="clr-namespace:VirtualGridKit;assembly=VirtualGridKit"
+             Title="Virtual Grid Demo">
+    <Grid RowDefinitions="50,*">
+        <Grid Grid.Row="0"
+              Margin="5"
+              ColumnDefinitions="*,*,*,*"
+              ColumnSpacing="15">
+            <Button Clicked="Button_Clicked_Add"
+                    CornerRadius="10"
+                    Text="Add" />
+            <Button Grid.Column="1"
+                    Clicked="Button_Clicked_Remove"
+                    Text="Remove" />
+            <Button Grid.Column="2"
+                    Clicked="Button_Clicked_Replace"
+                    Text="Replace" />
+            <Button Grid.Column="3"
+                    Clicked="Button_Clicked_Move"
+                    Text="Move" />
+        </Grid>
+
+        <kit:VirtualGrid Grid.Row="1"
+                         HeaderItemSource="{Binding HeaderItems}"
+                         GridItemSource="{Binding DataItems}">
+            <kit:VirtualGrid.ColumnHeader>
+                <kit:DataGridColumn Width="150">
+                    <kit:DataGridColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0"
+                                   Padding="0"
+                                   Margin="0"
+                                   BorderColor="Black"
+                                   BackgroundColor="LightGray">
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       Padding="5" />
+                            </Frame>
+                        </DataTemplate>
+                    </kit:DataGridColumn.HeaderTemplate>
+                </kit:DataGridColumn>
+            </kit:VirtualGrid.ColumnHeader>
+            <kit:VirtualGrid.Columns>
+                <kit:DataGridColumn Width="100"
+                                    Title="Header 1">
+                    <kit:DataGridColumn.ColumnCellTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0"
+                                   Padding="0"
+                                   Margin="0"
+                                   BorderColor="Black"
+                                   BackgroundColor="White">
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       Padding="5"/>
+                            </Frame>    
+                        </DataTemplate>
+                    </kit:DataGridColumn.ColumnCellTemplate>
+                </kit:DataGridColumn>
+                <kit:DataGridColumn Width="100"
+                                    Title="Header 2">
+                    <kit:DataGridColumn.ColumnCellTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0"
+                                   Padding="0"
+                                   Margin="0"
+                                   BorderColor="Black"
+                                   BackgroundColor="White">
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           Padding="5" />
+                                    <Entry Text="{Binding Name1}"/>
+
+                                </StackLayout>
+                            </Frame>    
+                        </DataTemplate>
+                    </kit:DataGridColumn.ColumnCellTemplate>
+                </kit:DataGridColumn>
+                <kit:DataGridColumn Width="100"
+                                    Title="Header 3">
+                    <kit:DataGridColumn.ColumnCellTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0"
+                                   Padding="0"
+                                   Margin="0"
+                                   BorderColor="Black"
+                                   BackgroundColor="White">
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       Padding="5"/>
+                            </Frame>    
+                        </DataTemplate>
+                    </kit:DataGridColumn.ColumnCellTemplate>
+                </kit:DataGridColumn>
+                <kit:DataGridColumn Width="100"
+                                    Title="Header 4">
+                    <kit:DataGridColumn.ColumnCellTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0"
+                                   Padding="0"
+                                   Margin="0"
+                                   BorderColor="Black"
+                                   BackgroundColor="White">
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       Padding="5"/>
+                            </Frame>    
+                        </DataTemplate>
+                    </kit:DataGridColumn.ColumnCellTemplate>
+                </kit:DataGridColumn>
+                <kit:DataGridColumn Width="100"
+                                    Title="Header 5">
+                    <kit:DataGridColumn.ColumnCellTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="0"
+                                   Padding="0"
+                                   Margin="0"
+                                   BorderColor="Black"
+                                   BackgroundColor="White">
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       Padding="5"/>
+                            </Frame>    
+                        </DataTemplate>
+                    </kit:DataGridColumn.ColumnCellTemplate>
+                </kit:DataGridColumn>
+            </kit:VirtualGrid.Columns>
+            
+        </kit:VirtualGrid>
+    </Grid>
+</ContentPage>
